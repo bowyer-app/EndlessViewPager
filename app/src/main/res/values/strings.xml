@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">EndressViewPager</string>
+  <string name="tab_name">%dタブ</string>
+</resources>
