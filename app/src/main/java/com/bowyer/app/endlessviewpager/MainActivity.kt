@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import com.bowyer.app.endlessviewpager.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,10 +50,6 @@ class MainActivity : AppCompatActivity() {
       })
     }
 
-    binding.tabs.apply {
-      tabMode = TabLayout.MODE_SCROLLABLE
-      tabGravity = TabLayout.GRAVITY_CENTER
-      setupWithViewPager(binding.viewpager)
-    }
+    binding.tabs.setViewPager(binding.viewpager)
   }
 }
