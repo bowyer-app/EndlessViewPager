@@ -1,10 +1,10 @@
-package com.bowyer.app.endressviewpager
+package com.bowyer.app.endlessviewpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
-import com.bowyer.app.endressviewpager.databinding.ActivityMainBinding
+import com.bowyer.app.endlessviewpager.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {

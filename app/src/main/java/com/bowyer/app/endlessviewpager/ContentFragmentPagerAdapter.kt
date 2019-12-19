@@ -1,4 +1,4 @@
-package com.bowyer.app.endressviewpager
+package com.bowyer.app.endlessviewpager
 
 import android.content.Context
 import androidx.fragment.app.Fragment
