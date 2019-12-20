@@ -8,6 +8,10 @@ import androidx.fragment.app.FragmentPagerAdapter
 class ContentFragmentPagerAdapter(private val context: Context, fm: FragmentManager) :
   FragmentPagerAdapter(fm) {
 
+  companion object {
+    private const val NUMBER_OF_LOOPS = 10000
+  }
+
   private val tabNames = mutableListOf<String>()
 
   init {
@@ -22,7 +26,7 @@ class ContentFragmentPagerAdapter(private val context: Context, fm: FragmentMana
   }
 
   override fun getCount(): Int {
-    return tabNames.size + 2
+    return tabNames.size * NUMBER_OF_LOOPS
   }
 
   override fun getPageTitle(position: Int): CharSequence? {
@@ -31,9 +35,9 @@ class ContentFragmentPagerAdapter(private val context: Context, fm: FragmentMana
 
   fun getRealCount() = tabNames.size
 
-  private fun getRealPosition(position: Int) = when (position) {
-    0 -> getRealCount() - 1
-    getRealCount() + 1 -> 0
-    else -> position - 1
+  private fun getRealPosition(position: Int) = position % tabNames.size
+
+  fun getCenterPosition(position: Int): Int {
+    return tabNames.size * NUMBER_OF_LOOPS / 2 + position
   }
 }

@@ -20,15 +20,11 @@ class MainActivity : AppCompatActivity() {
     val contentsAdapter = ContentFragmentPagerAdapter(this, supportFragmentManager)
     binding.viewpager.apply {
       adapter = contentsAdapter
-      setCurrentItem(1, false)
+      setCurrentItem(contentsAdapter.getCenterPosition(1), false)
       addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-        private var realPosition = -1
 
         override fun onPageScrollStateChanged(state: Int) {
-          if (state == ViewPager.SCROLL_STATE_IDLE && realPosition >= 0) {
-            binding.viewpager.setCurrentItem(realPosition, false)
-            realPosition = -1
-          }
+          // do nothing
         }
 
         override fun onPageScrolled(
@@ -40,16 +36,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onPageSelected(position: Int) {
-          when (position) {
-            0 -> realPosition = contentsAdapter.getRealCount()
-            contentsAdapter.getRealCount() + 1 -> realPosition = 1
-            else -> {
-            }
+
+          val nearLeftEdge = position <= contentsAdapter.getRealCount()
+          val nearRightEdge = position >= contentsAdapter.count - contentsAdapter.getRealCount()
+          if (nearLeftEdge || nearRightEdge) {
+            binding.viewpager.setCurrentItem(contentsAdapter.getCenterPosition(1), false)
           }
         }
       })
     }
 
-    binding.tabs.setViewPager(binding.viewpager)
+    binding.tabs.setUpWithViewPager(binding.viewpager)
   }
 }

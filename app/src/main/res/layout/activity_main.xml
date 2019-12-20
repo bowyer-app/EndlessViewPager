@@ -18,7 +18,7 @@
       app:layout_constraintTop_toBottomOf="@+id/tabs"
       />
 
-    <com.ogaclejapan.smarttablayout.SmartTabLayout
+    <com.nshmura.recyclertablayout.RecyclerTabLayout
       android:id="@+id/tabs"
       android:layout_width="0dp"
       android:layout_height="48dp"
@@ -26,8 +26,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:stl_indicatorAlwaysInCenter="true"
-      app:stl_defaultTabTextMinWidth="200dp"
+      app:rtl_tabMinWidth="200dp"
       app:tabSelectedTextColor="#990000"
       app:tabTextColor="#000000"
       />
